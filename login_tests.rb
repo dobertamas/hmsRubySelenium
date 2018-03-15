@@ -17,6 +17,7 @@ class LoginTests < Test::Unit::TestCase
 
   def test_happpy_path_login
     loginObject = LoginPage.new(@browser, @url)
+    loginObject.login("admin","admin")
   end
 
 end
