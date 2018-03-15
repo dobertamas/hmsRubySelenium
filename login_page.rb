@@ -13,9 +13,8 @@ class LoginPage < BasePage
     @username=username
     @password=password
     enter_username(@username)
-    self.enterPassword(@password)
-    clickLoginButton()
-
+    self.enter_password(@password)
+    click_login_button()
   end
 
   def enter_username(username)
@@ -23,7 +22,20 @@ class LoginPage < BasePage
     sendKeys(@username, LoginPageLocators::USERNAME_FIELD, "name")
   end
 
+  def enter_password(password)
+    @selenium_driver
+    sendKeys(@password, LoginPageLocators::PASSWORD_FIELD, "name")
+  end
+
+  def click_login_button()
+    element_click(LoginPageLocators::LOGIN_BUTTON, "name")
+  end
+
   def sendKeys(data, locator, locatorType="name")
+    super
+  end
+
+  def element_click(locator, locatorType="name")
     super
   end
 

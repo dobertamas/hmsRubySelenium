@@ -12,7 +12,6 @@ class LoginTests < Test::Unit::TestCase
   def setup
     @browser = Selenium::WebDriver.for :firefox
     @url = "http://localhost:8084/console/login"
-    #@driver = Selenium::WebDriver.for(:remote, :url => url)
   end
 
   def test_happpy_path_login

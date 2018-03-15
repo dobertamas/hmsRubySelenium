@@ -30,38 +30,19 @@ class BasePage
     @data=data
     @element = getElement(@locator, @locatorType)
     @element.send_keys(@data)
-
   end
 
   def getElement(locator, locatorType)
     @locator=locator
     @locatorType=locatorType
-    byType = getByType(@locatorType)
-    @element = @selenium_driver.find_element(byType, @locator)
-
+    @element = @selenium_driver.find_element(@locatorType, @locator)
     return @element
   end
 
-  def getByType(locatorType)
-    @locatorType=locatorType
-    if @locatorType == "id"
-      return By.ID
-      elif locatorType == "name"
-      return By.NAME
-      elif locatorType == "xpath"
-      return By.XPATH
-      elif locatorType == "css"
-      return By.CSS_SELECTOR
-      elif locatorType == "class"
-      return By.CLASS_NAME
-      elif locatorType == "link"
-      return By.LINK_TEXT
-      elif locatorType == "tag"
-      return By.TAG_NAME
-    else
-      #self.log.debug("Locator type " + locatorType + " not correct/supported")
-      return false
-    end
+  def element_click(locator, locatorType="name")
+    button = @selenium_driver.find_element(@locatorType, @locator)
+    # time.sleep(3)
+    button.click()
   end
 
 end
