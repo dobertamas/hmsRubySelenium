@@ -12,7 +12,7 @@ class LoginTests < Test::Unit::TestCase
 
   def setup
     @browser = Selenium::WebDriver.for :firefox
-    @url = "http://localhost:8084/console/login"
+    @url = "http://localhost:8084/console"
   end
 
   def test_happpy_path_login

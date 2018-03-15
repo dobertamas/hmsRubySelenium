@@ -4,7 +4,7 @@ require './locators'
 class LoginPage < BasePage
 
   def start
-    url = '/config/list'
+    url = '/welcome'
     @url = @base_url + url
     @selenium_driver.get(@url)
   end

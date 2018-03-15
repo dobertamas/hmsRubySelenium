@@ -2,7 +2,7 @@ require "selenium-webdriver"
 
 class BasePage
 
-  def initialize(selenium_driver, base_url="http://localhost:8084/console/login")
+  def initialize(selenium_driver, base_url="http://localhost:8084/console")
     @selenium_driver = selenium_driver
     @base_url=base_url
     @element
