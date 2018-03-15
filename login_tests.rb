@@ -7,6 +7,7 @@ Ruby does not automatically include the current directory in the list of directo
 it will search for a require so you should explicitly prepend a ./
 if you want to require a file in the current directory
 =end
+
 class LoginTests < Test::Unit::TestCase
 
   def setup

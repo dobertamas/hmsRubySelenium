@@ -13,7 +13,7 @@ class LoginPage < BasePage
     @username=username
     @password=password
     enter_username(@username)
-    self.enter_password(@password)
+    enter_password(@password)
     click_login_button()
   end
 

@@ -9,7 +9,7 @@ class BasePage
     if selenium_driver.nil?
       puts "There is no object!"
     else
-      puts "We in initialize method"
+      puts "We are in initialize method"
       start
     end
   end
@@ -28,6 +28,7 @@ class BasePage
     @locator=locator
     @locatorType=locatorType
     @data=data
+    puts "getting the element"
     @element = getElement(@locator, @locatorType)
     @element.send_keys(@data)
   end
@@ -35,14 +36,30 @@ class BasePage
   def getElement(locator, locatorType)
     @locator=locator
     @locatorType=locatorType
+    puts "inside the getElement method"
     @element = @selenium_driver.find_element(@locatorType, @locator)
-    return @element
-  end
+  rescue => e
+    puts "Got an exception"
+    @error_message="#{$!}"
+    puts "Exception Class: #{ e.class.name }"
+    puts "Exception Message: #{ e.message }"
+    puts "Exception Backtrace: #{ e.backtrace }"
+  return @element
+end
 
-  def element_click(locator, locatorType="name")
-    button = @selenium_driver.find_element(@locatorType, @locator)
-    # time.sleep(3)
-    button.click()
-  end
+def element_click(locator, locatorType)
+  @locator=locator
+  @locatorType=locatorType
+  button = @selenium_driver.find_element(@locatorType, @locator)
+  sleep(3)
+  button.click()
+rescue => e
+  puts "Got an exception"
+  @error_message="#{$!}"
+  puts "Exception Class: #{ e.class.name }"
+  puts "Exception Message: #{ e.message }"
+  puts "Exception Backtrace: #{ e.backtrace }"
+
+end
 
 end
