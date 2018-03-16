@@ -12,12 +12,12 @@ class LoginTests < Test::Unit::TestCase
 
   def setup
     @browser = Selenium::WebDriver.for :firefox
-    @url = "http://localhost:8084/console"
+    @url = 'http://localhost:8084/console'
   end
 
-  def test_happpy_path_login
-    loginObject = LoginPage.new(@browser, @url)
-    loginObject.login("admin","admin")
+  def test_happy_path_login
+    login_object = LoginPage.new(@browser, @url)
+    login_object.login('admin', 'admin')
   end
 
 end

@@ -5,7 +5,6 @@ class LoginPageLocators
   USERNAME_FIELD = "username"
   PASSWORD_FIELD = "password"
   LOGIN_BUTTON = "signin"
-    #LOGIN_BUTTON = "button"
 end
 
 class MainPageLocators

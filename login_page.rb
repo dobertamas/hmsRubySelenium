@@ -9,33 +9,31 @@ class LoginPage < BasePage
     @selenium_driver.get(@url)
   end
 
-  def login(username="admin", password="admin")
+  def login(username='admin', password='admin')
     @username=username
     @password=password
     enter_username(@username)
     enter_password(@password)
-    click_login_button()
+    click_login_button
   end
 
   def enter_username(username)
-    @selenium_driver
-    sendKeys(@username, LoginPageLocators::USERNAME_FIELD, "name")
+    send_keys('name', LoginPageLocators::USERNAME_FIELD, username)
   end
 
   def enter_password(password)
-    @selenium_driver
-    sendKeys(@password, LoginPageLocators::PASSWORD_FIELD, "name")
+    send_keys('name', LoginPageLocators::PASSWORD_FIELD, password)
   end
 
-  def click_login_button()
-    element_click(LoginPageLocators::LOGIN_BUTTON, "name")
+  def click_login_button
+    element_click('name', LoginPageLocators::LOGIN_BUTTON)
   end
 
-  def sendKeys(data, locator, locatorType="name")
+  def send_keys(locator_type='name', locator, data)
     super
   end
 
-  def element_click(locator, locatorType="name")
+  def element_click(locator_type='name', locator)
     super
   end
 
