@@ -1,4 +1,6 @@
 require 'selenium-webdriver'
+require 'logger'
+require './utilities/my_log'
 
 class BasePage
 
@@ -8,9 +10,10 @@ class BasePage
     if selenium_driver.nil?
       puts 'There is no object!'
     else
-      puts 'We are in initialize method'
+      MyLog.log.debug 'in initialize method'
       start
     end
+
   end
 
   def start
@@ -24,13 +27,13 @@ class BasePage
   end
 
   def send_keys(locator_type='name', locator, data)
-    puts 'getting the element'
+    MyLog.log.debug 'getting the element'
     element = get_element(locator_type, locator)
     element.send_keys(data)
   end
 
   def get_element(locator_type, locator)
-    puts 'inside the getElement method'
+    MyLog.log.debug 'inside the getElement method'
     element = @selenium_driver.find_element(locator_type, locator)
   rescue => e
     #error_message="#{$!}"
@@ -43,11 +46,12 @@ class BasePage
   def element_click(locator_type, locator)
     button = @selenium_driver.find_element(locator_type, locator)
     sleep(3)
+    MyLog.log.debug 'inside the element_click method'
     button.click
   rescue => e
-    puts "Exception Class: #{ e.class.name }"
-    puts "Exception Message: #{ e.message }"
-    puts "Exception Backtrace: #{ e.backtrace }"
+    MyLog.log.info "Exception Class: #{ e.class.name }"
+    MyLog.log.info "Exception Message: #{ e.message }"
+    MyLog.log.info "Exception Backtrace: #{ e.backtrace }"
   end
 
 end
