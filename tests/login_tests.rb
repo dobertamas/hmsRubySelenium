@@ -1,7 +1,7 @@
 #require 'rubygems'
 require 'selenium-webdriver'
 require 'test/unit'
-require './login_page'
+require './pages/login_page'
 =begin
 Ruby does not automatically include the current directory in the list of directories
 it will search for a require so you should explicitly prepend a ./

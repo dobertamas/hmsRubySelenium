@@ -1,5 +1,5 @@
-require './base_page'
-require './locators'
+require_relative './base_page'
+require_relative './locators'
 
 class LoginPage < BasePage
 
