@@ -5,7 +5,6 @@ class BasePage
   def initialize(selenium_driver, base_url='http://localhost:8084/console')
     @selenium_driver = selenium_driver
     @base_url=base_url
-    #@element
     if selenium_driver.nil?
       puts 'There is no object!'
     else
@@ -34,7 +33,6 @@ class BasePage
     puts 'inside the getElement method'
     element = @selenium_driver.find_element(locator_type, locator)
   rescue => e
-    puts 'Got an exception'
     #error_message="#{$!}"
     puts "Exception Class: #{ e.class.name }"
     puts "Exception Message: #{ e.message }"
@@ -47,7 +45,6 @@ class BasePage
     sleep(3)
     button.click
   rescue => e
-    puts 'Got an exception'
     puts "Exception Class: #{ e.class.name }"
     puts "Exception Message: #{ e.message }"
     puts "Exception Backtrace: #{ e.backtrace }"

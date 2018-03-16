@@ -10,10 +10,8 @@ class LoginPage < BasePage
   end
 
   def login(username='admin', password='admin')
-    @username=username
-    @password=password
-    enter_username(@username)
-    enter_password(@password)
+    enter_username(username)
+    enter_password(password)
     click_login_button
   end
 
@@ -27,14 +25,6 @@ class LoginPage < BasePage
 
   def click_login_button
     element_click('name', LoginPageLocators::LOGIN_BUTTON)
-  end
-
-  def send_keys(locator_type='name', locator, data)
-    super
-  end
-
-  def element_click(locator_type='name', locator)
-    super
   end
 
 end
