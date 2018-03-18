@@ -19,7 +19,7 @@ class LoginTests < Test::Unit::TestCase
   def test_happy_path_login
     page_factory_object = PageFactory.new
     login_page = page_factory_object.get_page_object('login_page', @selenium_driver, @base_url)
-    login_page.login('admin', 'admin')
+    login_page.login
   end
 
 end
