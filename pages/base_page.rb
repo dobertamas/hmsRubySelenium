@@ -49,9 +49,9 @@ class BasePage
     MyLog.log.debug 'inside the element_click method'
     button.click
   rescue => e
-    MyLog.log.info "Exception Class: #{ e.class.name }"
-    MyLog.log.info "Exception Message: #{ e.message }"
-    MyLog.log.info "Exception Backtrace: #{ e.backtrace }"
+    MyLog.log.debug "Exception Class: #{ e.class.name }"
+    MyLog.log.debug "Exception Message: #{ e.message }"
+    MyLog.log.debug "Exception Backtrace: #{ e.backtrace }"
   end
 
 end
